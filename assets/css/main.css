@@ -2501,4 +2501,31 @@ input, select, textarea {
     flex-grow: 1; /* Makes text fill space evenly */
 }
 
+/* Larger, clean thumbnails for Media Features */
+.feature .image.left img {
+    width: 240px;            /* bigger thumbnail */
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Keep the left-image layout aligned */
+.feature .image.left {
+    float: left;
+    margin: 0 2rem 1.5rem 0;
+    max-width: 260px;        /* ensures the layout doesn’t break */
+}
+
+/* Responsive: stack image above text on smaller screens */
+@media screen and (max-width: 900px) {
+    .feature .image.left,
+    .feature .image.left img {
+        float: none;
+        margin: 0 auto 1.5rem auto;
+        max-width: 85%;
+        display: block;
+    }
+}
 
