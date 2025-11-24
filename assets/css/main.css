@@ -2443,3 +2443,37 @@ input, select, textarea {
 					}
 
 	}
+
+
+
+
+	/* ===== Album Gallery Grid ===== */
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.album {
+    text-align: center;
+}
+
+.album img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.album h3 {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+}
