@@ -1,192 +1,418 @@
 <!DOCTYPE HTML>
-<!--
-    Miniport by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-    <head>
-        <title>Hello! Can I help you?</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-    </head>
-    <body class="is-preload">
-
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="container">
-                <li><a href="#top">Top</a></li>
-                <li><a href="about.html">About</a></li>
-				<li><a href="community.html">Community Engagement</a></li>
-				<li><a href="photography.html">Photography</a></li>
-                <li><a href="contact.html">Contact</a></li>
-
-			</ul>
-        </nav>
-
-        <!-- Home -->
-        <article id="top" class="wrapper style1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 col-5-large col-12-medium">
-                        <span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-                    </div>
-                    <div class="col-8 col-7-large col-12-medium">
-                        <header>
-                            <h1>Hi. I'm <strong>Cory J. Ortiz, PhD</strong>.</h1>
-                        </header>
-
-                        <p class="major">
-                            <strong>Transforming workforce training through leadership, partnerships, and innovative CTE strategy.</strong>
-                        </p>
-
-                        <a href="#work" class="button large scrolly">See My Work</a>
-                        <a href="about.html" class="button large alt">About Me</a>
-
-                        <hr />
-
-                        <p><strong>What I Do</strong></p>
-                        <ul style="text-align: left; margin-left: 1rem;">
-    <li>Lead statewide technical training and institutional strategy at AVTEC.</li>
-    <li>Develop industry-aligned CTE programs that expand access and boost enrollment.</li>
-    <li>Build partnerships across education, workforce, and industry sectors.</li>
-    <li>Advance research and innovation in CTE, retention, and emerging technologies.</li>
-</ul>
+<head>
+    <title>Hello! Can I help you?</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
 
-                    </div>
+    <style>
+    /*
+      Scoped overrides to stop Miniport's layout & animation from breaking the carousel.
+      These are intentionally specific so they don't disturb the rest of your site.
+    */
+
+    /* 1) Neutralize scroll-based hiding/animation ONLY for .box.style2 inside #work */
+    #work .box.style2,
+    #work .box.style2 * {
+      opacity: 1 !important;
+      transform: none !important;
+      -webkit-transform: none !important;
+      transition: none !important;
+      -webkit-transition: none !important;
+      will-change: auto !important;
+    }
+
+    /* 2) Make rows that contain the carousel behave normally (prevent negative gaps from collapsing carousel) */
+    #work .row.carousel-row { margin-top: 0 !important; margin-left: 0 !important; }
+    #work .row.carousel-row > * { padding: 0 !important; }
+
+    /* 3) Carousel container: ensure visible, not clipped by parents */
+    .accomplishment-carousel {
+      position: relative;
+      width: 100%;
+      margin-top: 1.25rem;
+      overflow: visible !important;
+      box-sizing: border-box;
+    }
+
+    .accomplishment-carousel .slides {
+      position: relative;
+      width: 100%;
+      overflow: visible !important;
+      box-sizing: border-box;
+      /* min-height will be set dynamically by JS; fallback */
+      min-height: 120px;
+    }
+
+    /*
+      4) Use opacity + positioning for hiding (instead of display:none)
+      so heights can be measured and Miniport layout won't collapse.
+    */
+    .accomplishment-carousel .slide-content {
+      display: block;               /* remain in DOM for measuring */
+      position: absolute;           /* removed from flow when hidden */
+      left: 0;
+      top: 0;
+      width: 100%;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .45s ease-in-out, visibility .2s;
+      padding: 0.6rem 0; /* small vertical padding; theme boxes still provide most spacing */
+      background: transparent; /* leave theme backgrounds intact */
+    }
+
+    .accomplishment-carousel .slide-content.active {
+      position: relative;  /* occupies flow when active */
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 5) Make sure dots are visible and not affected by theme defaults */
+    .accomplishment-carousel .carousel-dots {
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.5rem 0;
+    }
+    .accomplishment-carousel .carousel-dots button {
+      appearance: none;
+      border: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.18);
+      margin: 0 6px;
+      cursor: pointer;
+      padding: 0;
+      display: inline-block;
+    }
+    .accomplishment-carousel .carousel-dots button.active {
+      background: rgba(0,0,0,0.55);
+    }
+
+    /* 6) Reduce specificity collisions with theme formattings on headings inside the carousel */
+    .accomplishment-carousel h3 { margin: 0 0 0.5rem 0; color: inherit; }
+    .accomplishment-carousel p  { margin: 0 0 0.75rem 0; color: inherit; }
+
+    /* 7) Small-screen safety */
+    @media screen and (max-width: 736px) {
+      #work .row.carousel-row > * { padding: 0 !important; }
+      .accomplishment-carousel .slide-content { padding: 0.45rem 0; }
+      .accomplishment-carousel .carousel-dots { margin-top: 0.6rem; }
+    }
+
+	/* Reduce giant theme padding ONLY inside the Work section carousel box */
+
+#work .box.style2 {
+    padding: 0.5rem .5rem !important;
+}
+
+#work.wrapper {
+    padding: 0.5rem 0 !important;
+}
+
+
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="#top">Top</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="teaching/index.html">Teaching</a></li>
+            <li><a href="community.html">Community Engagement</a></li>
+            <li><a href="photography.html">Photography</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <article id="top" class="wrapper style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-5-large col-12-medium">
+                    <span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
                 </div>
-            </div>
-        </article>
+                <div class="col-8 col-7-large col-12-medium">
+                    <header>
+                        <h1>Hi. I'm <strong>Cory J. Ortiz, PhD</strong>.</h1>
+                    </header>
 
-        <!-- Work / Accomplishments -->
-        <article id="work" class="wrapper style2">
-            <div class="container">
-                <header class="major">
-                    <h2>Major Accomplishments</h2>
-                    <p>Here are a few highlights of the impact I've made in career and technical education, workforce development, and industry partnerships.</p>
-                </header>
+                    <p class="major">
+                        <strong>Transforming workforce training through leadership, partnerships, and innovative CTE strategy.</strong>
+                    </p>
 
-                <div class="row gtr-150">
+                    <a href="#work" class="button large scrolly">See My Work</a>
+                    <a href="about.html" class="button large alt">About Me</a>
 
-                    <!-- Enrollment Growth -->
-                    <div class="col-4 col-12-medium">
-                        <article class="box style2">
-                            <h3>Record Enrollment Growth</h3>
-                            <p>As Dean of the UAS School of Career Education, led initiatives resulting in a 
-                            <strong>61.3% increase in student headcount</strong> and a 
-                            <strong>21.1% increase in student credit hours</strong> year-over-year 
-                            (Institutional Research, Fall 2024 Estimates).</p>
-                            <a href="https://drive.google.com/file/d/1ATYsJhMjUc4jVRkp2kbxPHVvX9AnR7u1/view?usp=sharing"
-                               target="_blank" class="button small">View Report</a>
-                        </article>
-                    </div>
+                    <hr />
 
-                    <!-- Diesel 101 -->
-                    <div class="col-4 col-12-medium">
-                        <article class="box style2">
-                            <h3>Launched Diesel 101 Career Pathway</h3>
-                            <p>Collaborated with Juneau high schools to launch <strong>Diesel 101</strong>, a dual-enrollment program giving students hands-on technical training and college credit.</p>
-                            <a href="https://web.archive.org/web/20241116023234/https://www.ktoo.org/2024/11/15/juneau-high-school-students-get-hands-on-experience-with-new-diesel-101-class/"
-                               target="_blank" class="button small">Read Article</a>
-                        </article>
-                    </div>
+                    <p><strong>What I Do</strong></p>
 
-                    <!-- Port Partners -->
-                    <div class="col-4 col-12-medium">
-                        <article class="box style2">
-                            <h3>Royal Caribbean × AVTEC Partnership</h3>
-                            <p>Helped establish Alaska’s first <strong>Port Partners Business Accelerator</strong> — 
-                            supporting local entrepreneurs with mentorship, training, and a 
-                            <strong>$20,000 seed funding competition</strong>.</p>
-                            <a href="https://royalcaribbeangrouppresscenter.com/news/royal-caribbean-group-launches-port-partners-in-seward-alaska-with-inaugural-small-business-accelerator-program"
-                               target="_blank" class="button small">View Program Details</a>
-                        </article>
-                    </div>
-
-                </div>
-
-                <!-- Additional Accomplishments -->
-                <div class="row gtr-150" style="margin-top: 3rem;">
-
-                    <!-- Research -->
-                    <div class="col-6 col-12-medium">
-                        <article class="box style2">
-                            <h3>Applied Research & National Presentations</h3>
-                            <p>Author and presenter on CTE teacher retention, drone-based STEM learning, AI integration in technical education, and developing industry-aligned training pathways.</p>
-                        </article>
-                    </div>
-
-                    <!-- Leadership -->
-                    <div class="col-6 col-12-medium">
-                        <article class="box style2">
-                            <h3>Professional & Community Leadership</h3>
-<p>Active contributor to statewide and national workforce development initiatives, serving on advisory boards, committees, and collaborative projects that support CTE innovation, equity, and industry-aligned training.</p>
-                        </article>
-                    </div>
-
-                </div>
-
-            </div>
-        </article>
-
-        <!-- How I Can Help -->
-        <article class="wrapper style3">
-            <div class="container">
-                <header class="major">
-                    <h2>How I Can Help</h2>
-                    <p>I collaborate with schools, industry partners, and organizations to build stronger, more innovative workforce pathways.</p>
-                </header>
-
-                        <ul style="text-align: left; margin-left: 1rem;">
-                    <li>Strategic planning for career & technical education programs</li>
-                    <li>Industry partnership development and expansion</li>
-                    <li>Program design, curriculum development, and launch strategy</li>
-                    <li>Enrollment growth and data-informed decision-making</li>
-                    <li>Keynote speaking, workshops, and consulting</li>
-                </ul>
-            </div>
-        </article>
-
-        <!-- Contact -->
-        <article id="contact" class="wrapper style4">
-            <div class="container medium">
-                <header>
-                    <h2>Let's Connect.</h2>
-                    <p>Have a project, partnership, or idea? <a href="contact.html">Reach out</a>.</p>
-                </header>
-
-                <div class="row">
-                    <div class="col-12">
-                        <hr />
-                        <h3>Find me on ...</h3>
-                        <ul class="social">
-                            <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                            <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                        </ul>
-                        <hr />
-                    </div>
-                </div>
-
-                <footer>
-                    <ul id="copyright">
-                        <li>&copy; 2025 Cory J. Ortiz. All rights reserved.</li>
-                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <ul style="text-align: left; margin-left: 1rem;">
+                        <li>Lead statewide technical training and institutional strategy at AVTEC.</li>
+                        <li>Develop industry-aligned CTE programs that expand access and boost enrollment.</li>
+                        <li>Build partnerships across education, workforce, and industry sectors.</li>
+                        <li>Advance research and innovation in CTE, retention, and emerging technologies.</li>
                     </ul>
-                </footer>
 
+                </div>
             </div>
+        </div>
+    </article>
+
+    <!-- Work / Accomplishments (unchanged structure, carousel placed safely out of .box) -->
+    <article id="work" class="wrapper style2">
+        <div class="container">
+            <header class="major">
+                <h2>Major Accomplishments</h2>
+                <p>Rotating highlights of my leadership and impact in career & technical education.</p>
+            </header>
+
+
+            <!-- Carousel row wrapped in boxed Miniport article -->
+<div class="row">
+    <div class="col-12">
+        <article class="box style2" style="padding: 2.5rem 2rem;">
+
+            <!-- Carousel row: specialized class to remove negative-row spacing -->
+            <div class="row carousel-row" style="margin-top: 0 !important;">
+                <div class="col-12">
+
+                    <div class="accomplishment-carousel" aria-live="polite">
+                        <div class="slides">
+
+                            <div class="slide-content active" data-index="0">
+                                <h3>Record Enrollment Growth</h3>
+                                <p>
+                                  As Dean of the UAS School of Career Education, led initiatives resulting in a
+                                  <strong>61.3% increase in headcount</strong> and a
+                                  <strong>21.1% increase in student credit hours</strong> year-over-year
+                                  (Fall 2024 IR Estimates).
+                                </p>
+                                <a href="https://drive.google.com/file/d/1ATYsJhMjUc4jVRkp2kbxPHVvX9AnR7u1/view?usp=sharing"
+                                   target="_blank" class="button small">View Report</a>
+                            </div>
+
+                            <div class="slide-content" data-index="1">
+                                <h3>Launched Diesel 101 Career Pathway</h3>
+                                <p>Partnered with Juneau high schools to launch <strong>Diesel 101</strong>, establishing a new early workforce pipeline.</p>
+                                <a href="https://web.archive.org/web/20241116023234/https://www.ktoo.org/2024/11/15/juneau-high-school-students-get-hands-on-experience-with-new-diesel-101-class/"
+                                   target="_blank" class="button small">Read Article</a>
+                            </div>
+
+                            <div class="slide-content" data-index="2">
+                                <h3>Royal Caribbean × AVTEC Partnership</h3>
+                                <p>Co-created Alaska’s first <strong>Port Partners Business Accelerator</strong>, including a <strong>$20,000 pitch award</strong>.</p>
+                                <a href="https://royalcaribbeangrouppresscenter.com/news/royal-caribbean-group-launches-port-partners-in-seward-alaska-with-inaugural-small-business-accelerator-program"
+                                   target="_blank" class="button small">View Program Details</a>
+                            </div>
+
+                            <div class="slide-content" data-index="3">
+                                <h3>$100,000 Mining Workforce Donation Secured</h3>
+                                <p>Led the partnership resulting in <strong>Coeur Alaska investing $100,000</strong> in diesel and welding training for Juneau high school students.</p>
+                                <a href="https://www.miningnewsnorth.com/story/2024/12/13/news-nuggets/coeur-is-investing-in-se-alaska-students/8835.html"
+                                   target="_blank" class="button small">Read Article</a>
+                            </div>
+
+                        </div>
+
+                        <div class="carousel-dots" role="tablist" aria-label="Accomplishment slides">
+                            <button aria-label="Show slide 1" class="active" data-dot-index="0"></button>
+                            <button aria-label="Show slide 2" data-dot-index="1"></button>
+                            <button aria-label="Show slide 3" data-dot-index="2"></button>
+                            <button aria-label="Show slide 4" data-dot-index="3"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </article>
+    </div>
+</div>
 
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+    </article>
 
-    </body>
+    <!-- How I Can Help -->
+    <article class="wrapper style3">
+        <div class="container">
+            <header class="major">
+                <h2>How I Can Help</h2>
+                <p>I collaborate with schools, industry partners, and organizations to build innovative workforce pathways.</p>
+            </header>
+
+            <ul style="text-align: left; margin-left: 1rem;">
+                <li>Strategic planning for CTE programs</li>
+                <li>Industry partnership development</li>
+                <li>Curriculum design and program launching</li>
+                <li>Enrollment growth through data-informed strategy</li>
+                <li>Speaking, consulting, and advisory support</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- Contact -->
+    <article id="contact" class="wrapper style4">
+        <div class="container medium">
+            <header>
+                <h2>Let's Connect.</h2>
+                <p>Have a project, partnership, or idea? <a href="contact.html">Reach out</a>.</p>
+            </header>
+
+            <footer>
+                <ul id="copyright">
+                    <li>&copy; 2025 Cory J. Ortiz. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Scripts (theme scripts first) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Carousel JS: measures heights & keeps layout stable -->
+  <script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function () {
+    const carousel = document.querySelector('.accomplishment-carousel');
+    if (!carousel) return;
+
+    // remove any Miniport leftover
+    document.querySelectorAll('#work .box.style2').forEach(b => b.classList.remove('inactive'));
+
+    const slides = Array.from(carousel.querySelectorAll('.slide-content'));
+    const dots = Array.from(carousel.querySelectorAll('.carousel-dots button'));
+    const slidesContainer = carousel.querySelector('.slides');
+
+    let current = 0;
+    let interval = null;
+    const delay = 5000;
+
+    // Measure the active slide height safely.
+    function measureSlideHeight(index) {
+      const s = slides[index];
+      if (!s) return 0;
+
+      // If the slide is already active & visible, measure directly
+      const wasActive = s.classList.contains('active');
+      if (wasActive) return s.offsetHeight;
+
+      // Otherwise temporarily move a clone out-of-flow for measurement
+      // Approach: create a clone, position it offscreen but visible for measurement
+      const clone = s.cloneNode(true);
+      clone.classList.add('hidden-for-measure');
+      document.body.appendChild(clone);
+      const h = clone.offsetHeight;
+      document.body.removeChild(clone);
+      return h;
+    }
+
+    // Animate container from current height to newHeight using CSS transition.
+    function animateToHeight(newHeight) {
+      // Ensure slidesContainer has an explicit px height to animate from
+      const currentHeight = slidesContainer.getBoundingClientRect().height;
+      slidesContainer.style.height = currentHeight + 'px';
+
+      // Force reflow so the browser registers the starting height before transition
+      // eslint-disable-next-line no-unused-expressions
+      slidesContainer.offsetHeight;
+
+      slidesContainer.style.height = newHeight + 'px';
+
+      // After transition ends, clear inline height so layout can be natural if needed later
+      const onTransitionEnd = (e) => {
+        if (e.target !== slidesContainer || e.propertyName !== 'height') return;
+        slidesContainer.style.height = ''; // let content define height normally
+        slidesContainer.removeEventListener('transitionend', onTransitionEnd);
+      };
+      slidesContainer.addEventListener('transitionend', onTransitionEnd);
+    }
+
+    function resizeToActive() {
+      const h = measureSlideHeight(current) || 0;
+      animateToHeight(h);
+    }
+
+    function show(i) {
+      slides.forEach((s, idx) => {
+        const isActive = idx === i;
+        s.classList.toggle('active', isActive);
+        s.style.position = isActive ? 'relative' : 'absolute';
+        s.style.opacity = isActive ? '1' : '0';
+        s.style.visibility = isActive ? 'visible' : 'hidden';
+      });
+
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+      current = i;
+      // Wait a frame so the DOM updates (and offsetHeight is correct) before measuring
+      requestAnimationFrame(resizeToActive);
+    }
+
+    function next() { show((current + 1) % slides.length); }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      show(i);
+      clearInterval(interval);
+      interval = setInterval(next, delay);
+    }));
+
+    // Init: ensure container starts sized to first slide
+    // Force showing first slide (in case theme hid animations)
+    slides.forEach((s, idx) => {
+      if (idx === 0) {
+        s.classList.add('active');
+        s.style.position = 'relative';
+        s.style.opacity = '1';
+        s.style.visibility = 'visible';
+      } else {
+        s.classList.remove('active');
+        s.style.position = 'absolute';
+        s.style.opacity = '0';
+        s.style.visibility = 'hidden';
+      }
+    });
+
+    // Give browser a tick then size & start interval
+    requestAnimationFrame(() => {
+      resizeToActive();
+      interval = setInterval(next, delay);
+    });
+
+    // Recompute on resize (throttled)
+    let rt = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(resizeToActive, 140);
+    });
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', () => {
+      clearInterval(interval);
+      interval = setInterval(next, delay);
+    });
+  });
+})();
+</script>
+
+
+
+</body>
 </html>

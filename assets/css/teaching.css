@@ -1,0 +1,22 @@
+/* teaching.css — small helpers for teaching pages */
+
+.wrapper.style3 { padding-top: 6em; padding-bottom: 4em; }
+
+#nav a.active { background: #3a7fa0; } /* subtle variant for Teaching active */
+
+.box.style1 { text-align: left; }
+.box.style2 { text-align: left; background: #fff; }
+
+.teaching-badge {
+  display:inline-block;
+  padding: 0.35em 0.6em;
+  border-radius: 6px;
+  font-weight:700;
+  background:#f5f7fa;
+  color:#333;
+  margin-right:0.5em;
+}
+
+@media screen and (max-width: 980px) {
+  .wrapper.style3 { padding: 3em 0; }
+}

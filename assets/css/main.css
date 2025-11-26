@@ -2529,3 +2529,37 @@ input, select, textarea {
     }
 }
 
+
+/* ===== Carousel responsive height fixes (paste AFTER main.css) ===== */
+
+/* allow .slides height to be animated and remove any forced min-height */
+.accomplishment-carousel .slides {
+  min-height: 0 !important;
+  height: auto;
+  overflow: visible !important;
+  box-sizing: border-box;
+  transition: height 360ms ease;
+}
+
+/* keep slide content positioned as before */
+.accomplishment-carousel .slide-content {
+  display: block;
+  box-sizing: border-box;
+  padding: 0.6rem 0;
+  transition: opacity .45s ease-in-out, visibility .2s;
+}
+
+/* ensure when slide is hidden it doesn't get in the way of measurement */
+.accomplishment-carousel .slide-content.hidden-for-measure {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  display: block;
+}
+
+
+
+
+
+

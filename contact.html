@@ -5,6 +5,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
+ 
+ <style>
+  /* Center the top header across full width */
+  #contact-header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  /* Ensure row functions like a 2×2 grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Make image circular + resize if you'd like */
+  .contact-photo img {
+    width: 80%;
+    max-width: 260px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Responsive: Stack photo + form nicely on mobile */
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>
+
+ 
   </head>
 
   <body class="is-preload">
@@ -17,6 +53,7 @@
       <ul>
        <li><a href="index.html">Home</a></li>
        <li><a href="about.html" >About</a></li>
+              <li><a href="teaching/index.html">Teaching</a></li>
        <li><a href="community.html">Community Engagement</a></li>
        <li><a href="photography.html">Photography</a></li>
        <li><a href="contact.html"class="active">Contact</a></li>
@@ -44,24 +81,34 @@
               <p>I’d love to hear from you.</p>
             </header>
 
-            <form method="POST" action="#" id="contact-form">
-              <div class="row gtr-50 gtr-uniform">
-                <div class="col-6 col-12-small">
-                  <input type="text" name="name" id="name" placeholder="Your Name" required />
-                </div>
-                <div class="col-6 col-12-small">
-                  <input type="email" name="email" id="email" placeholder="Your Email" required />
-                </div>
-                <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
-                </div>
-                <div class="col-12">
-                  <ul class="actions special">
-                    <li><input type="submit" value="Send Message" class="button primary" /></li>
-                  </ul>
-                </div>
-              </div>
-            </form>
+           <form method="POST" action="https://formspree.io/f/mdkvverg" id="contact-form">
+  
+  <!-- REDIRECT GOES HERE -->
+  <input type="hidden" name="_redirect" value="https://coryjortiz.com/thanks.html">
+
+  <div class="row gtr-50 gtr-uniform">
+
+    <div class="col-6 col-12-small">
+      <input type="text" name="name" id="name" placeholder="Your Name" required />
+    </div>
+
+    <div class="col-6 col-12-small">
+      <input type="email" name="email" id="email" placeholder="Your Email" required />
+    </div>
+
+    <div class="col-12">
+      <textarea name="message" id="message" placeholder="Your Message" rows="6" required></textarea>
+    </div>
+
+    <div class="col-12">
+      <ul class="actions special">
+        <li><input type="submit" value="Send Message" class="button primary" /></li>
+      </ul>
+    </div>
+  </div>
+</form>
+
+
 
           </div>
         </div>
