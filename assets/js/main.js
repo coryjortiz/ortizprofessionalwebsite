@@ -34,4 +34,19 @@
 })(jQuery);
 
 
+// Automatically update body padding when #nav size changes
+function updateNavHeight() {
+  const nav = document.getElementById("nav");
+  if (!nav) return;
+  const height = nav.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-height", height + "px");
+}
+
+// On load and whenever screen size changes
+window.addEventListener("load", updateNavHeight);
+window.addEventListener("resize", updateNavHeight);
+
+// Detect wrapping / height changes
+const navObserver = new ResizeObserver(updateNavHeight);
+navObserver.observe(document.getElementById("nav"));
 

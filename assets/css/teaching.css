@@ -2,7 +2,7 @@
 
 .wrapper.style3 { padding-top: 6em; padding-bottom: 4em; }
 
-#nav a.active { background: #3a7fa0; } /* subtle variant for Teaching active */
+#nav a.active { background: #484848; } /* subtle variant for Teaching active */
 
 .box.style1 { text-align: left; }
 .box.style2 { text-align: left; background: #fff; }
@@ -20,3 +20,121 @@
 @media screen and (max-width: 980px) {
   .wrapper.style3 { padding: 3em 0; }
 }
+
+
+
+/* GLOBAL FIX – Center all button groups on all screen sizes */
+ul.actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    gap: 1rem; /* controlled spacing instead of random inline-block spacing */
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+ul.actions li {
+    margin: 0 !important; /* remove default HTML5UP spacing */
+}
+
+ul.actions .button {
+    white-space: nowrap; /* keeps each button tidy */
+}
+
+
+
+/* GLOBAL FIX — Center buttons on desktop, stack cleanly on mobile */
+
+/* Desktop / tablet default (aligned row) */
+ul.actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: -1rem 0;
+}
+
+ul.actions li {
+    margin: 0 !important;
+}
+
+/* Mobile override (stack buttons full width) */
+@media screen and (max-width: 736px) {
+    ul.actions {
+        flex-direction: column;
+        align-items: stretch; /* full width */
+        gap: 0.75rem;
+    }
+
+    ul.actions li {
+        width: 100%;
+    }
+
+    ul.actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+/* Make the three feature boxes equal height on large screens */
+@media screen and (min-width: 981px) {
+    .row.gtr-50 > [class*="col-4"] {
+        display: flex;
+    }
+
+    .row.gtr-50 > [class*="col-4"] .box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .row.gtr-50 > [class*="col-4"] .box p {
+        flex-grow: 1; /* pushes the button to the bottom */
+    }
+}
+
+
+
+
+/* Ensures portrait image stays centered and never grows too large */
+.teaching-intro .image.fit {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.teaching-intro .image.fit img {
+    width: 100%;
+    height: auto;
+    max-width: 380px;   /* prevents it from becoming huge on wide screens */
+}
+
+/* Medium screens: keep balanced two-column layout */
+@media screen and (min-width: 768px) {
+    .teaching-intro .col-5 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/* Large-screen proportional image resizing */
+@media screen and (min-width: 1200px) {
+    .teaching-intro .image.fit img {
+        max-width: 500px;     /* larger portrait size */
+        max-height: 85vh;     /* never taller than viewport */
+    }
+
+    .teaching-intro .col-5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;  /* vertically centers image in column */
+    }
+}
+

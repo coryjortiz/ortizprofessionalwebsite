@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Miniport by HTML5 UP
-    https://html5up.net | @ajlkn
-    Adapted: Community Impact / Service & Leadership page for Cory Ortiz
--->
 <html>
   <head>
     <title>Community Impact — Cory Ortiz</title>
@@ -11,273 +6,305 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
-<!-- LOCAL PAGE-ONLY STYLES -->
-<style>
+    <!-- PAGE-SPECIFIC STYLES -->
+    <style>
+      /* Magazine-style card layout */
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
 
-/* Turn each article into a two-column flex layout */
-.feature {
+      .media-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        text-align: left;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .media-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+      }
+
+      .media-card img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .media-card h4 {
+        margin-bottom: 0.25rem;
+      }
+
+      .media-card .byline {
+        font-size: 0.9em;
+        color: #777;
+      }
+
+      .media-card p {
+        margin-top: 0.8rem;
+      }
+
+      .media-card .button {
+        margin-top: 0.8rem;
+        display: inline-block;
+      }
+
+      /* Improve table spacing */
+      table th, table td {
+        padding: 0.75rem 1rem !important;
+        text-align: left;
+      }
+
+      table {
+        border-collapse: separate !important;
+        border-spacing: 0 0.25rem;
+        width: 100%;
+      }
+
+      table tr:nth-child(even) {
+        background: #f7f7f7;
+      }
+
+      /* Impact list */
+      .impact-list {
+        max-width: 700px;
+        margin: auto;
+        text-align: left;
+      }
+
+      .impact-list li {
+        margin-bottom: 0.6rem;
+      }
+
+      /* Ensure consistent top spacing between sections */
+      section.box, section.box.special {
+        margin-top: 2.5rem;
+      }
+
+
+
+.media-card {
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  flex-direction: column; /* stack content vertically */
 }
 
-/* Left column: image + button */
-.feature .left-column {
-  flex-shrink: 0;
-  width: 180px;
-  text-align: left;
+.media-card .button {
+  margin-top: auto; /* push button to bottom */
+  align-self: flex-start; /* optional: left-align; use center if you want */
 }
 
-/* Style the image */
-.feature .left-column img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-/* Right column: text left aligned */
-.feature .inner {
-  text-align: left;
-}
-
-/* Mobile stacking */
-@media (max-width: 768px) {
-  .feature {
-    flex-direction: column;
-  }
-  
-  .feature .left-column {
-    width: 100%;
-  }
-}
-
-  /* Left-align text only inside Media Features */
-  .feature .inner {
-    text-align: left;
-  }
-
-  /* Force button text to be centered */
-  .button {
-    text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
-    display: inline-flex !important;
-  }
-</style>
-
-</head>
-
-<body class="is-preload">
-<div id="page-wrapper">
-
-  <!-- Header -->
-  <header id="header">
-    <nav id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-          <li><a href="teaching/index.html">Teaching</a></li>
-        <li><a href="community.html" class="active">Community Impact</a></li>
-        <li><a href="photography.html">Photography</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      
 
 
-  <!-- HERO / INTRO -->
-  <section class="box special">
-    <header class="major">
-      <h2>Building Community Through Service, Leadership & Youth Empowerment</h2>
-      <p>
-        For over a decade, I have organized student-led charity events, supported national fundraising efforts, 
-        and collaborated with schools and nonprofits to make measurable impact.
-      </p>
-    </header>
-  </section>
 
 
-  <!-- MEDIA FEATURES -->
-  <section class="box">
-    <h3>Media Features</h3>
+    </style>
+  </head>
 
-    <!-- ARTICLE 1 -->
-    <article class="feature">
+  <body class="is-preload">
+    <div id="page-wrapper">
 
-      <div class="left-column">
-        <a href="https://www.standard.net/opinion/our-view/2016/may/16/who-deserves-praise-and-criticism-this-week-in-and-around-northern-utah/">
-          <img src="images/standard-opinion-2016-thumb.jpg" alt="Standard-Examiner opinion">
-        </a>
-        <a href="https://www.standard.net/opinion/our-view/2016/may/16/who-deserves-praise-and-criticism-this-week-in-and-around-northern-utah/" class="button small">Read full article</a>
-      </div>
+      <!-- Header -->
+      <header id="header">
+        <nav id="nav">
+          <ul class="container">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="teaching/index.html">Teaching</a></li>
+            <li><a href="community.html" class="active">Community Engagement</a></li>
+            <li><a href="photography.html">Photography</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-      <div class="inner">
-        <h4>Who deserves praise and criticism this week in and around northern Utah?</h4>
-        <span class="byline">Standard-Examiner Editorial Board — May 16, 2016</span>
+      <!-- HERO -->
+      <section class="box special">
+        <header class="major">
+          <h2>Community Impact & Youth Empowerment</h2>
+          <p>Over a decade of leading student-centered charity events, building partnerships, and empowering communities through service.</p>
+        </header>
+      </section>
+
+      <!-- CONNECTION TO EDUCATION -->
+      <section class="box">
+        <header>
+          <h3>How Community Work Shapes My Educational Practice</h3>
+        </header>
         <p>
-          “First-year engineering teacher Cory Ortiz, who organized the event, said he was overwhelmed by the
-          students’ selflessness. ‘This is a high-poverty school,’ said Ortiz, a veteran of many St. Baldrick’s Day
-          shearings.”
+          My approach as an educator and curriculum designer is rooted in the same principles that guide my community work:
+          collaboration, authentic experiences, social responsibility, and empowering learners to lead. Organizing school-wide events,
+          coordinating volunteers, and mentoring youth strengthened my ability to build high-impact learning environments and
+          community partnerships that support student growth.
+        </p>
+      </section>
+
+      <!-- SKILLS FROM COMMUNITY LEADERSHIP -->
+      <section class="box">
+        <h3>Skills Strengthened Through Community Leadership</h3>
+        <ul class="impact-list">
+          <li><strong>Program Design & Logistics:</strong> Managed multi-school, multi-stakeholder fundraising events.</li>
+          <li><strong>Youth Leadership Development:</strong> Empowered hundreds of students to lead philanthropy projects.</li>
+          <li><strong>Stakeholder Coordination:</strong> Worked with administrators, families, nonprofits, and local media.</li>
+          <li><strong>Real-World Learning:</strong> Integrated service into authentic, student-driven learning experiences.</li>
+          <li><strong>Equity & Access:</strong> Designed inclusive efforts in high-poverty and diverse school settings.</li>
+          <li><strong>Communication & Outreach:</strong> Led school-wide engagement and event promotion.</li>
+          <li><strong>Human-Centered Leadership:</strong> Built strong relationships through empathy and collaboration.</li>
+        </ul>
+      </section>
+
+      <!-- CTE CONNECTION -->
+      <section class="box">
+        <h3>Connection to Career & Technical Education</h3>
+        <p>
+          Many of the same principles that define high-quality CTE—teamwork, project management, communication, and real-world
+          application—are embedded in community engagement. My leadership experiences mirror the hands-on, applied learning
+          environments I design in technical education settings.
+        </p>
+      </section>
+
+      <!-- MEDIA FEATURES -->
+      <section class="box">
+        <h3>Media Features</h3>
+
+        <div class="media-grid">
+
+          <!-- Card 1 -->
+          <div class="media-card">
+            <a href="https://www.standard.net/opinion/our-view/2016/may/16/who-deserves-praise-and-criticism-this-week-in-and-around-northern-utah/">
+              <img src="images/standard-opinion-2016-thumb.jpg" alt="Standard Examiner 2016" />
+            </a>
+            <h4>Who deserves praise and criticism this week in northern Utah?</h4>
+            <div class="byline">Standard-Examiner Editorial Board — May 16, 2016</div>
+            <p>“First-year engineering teacher Cory Ortiz… was overwhelmed by the students’ selflessness.”</p>
+            <p><strong>Impact:</strong> Organized and led major student fundraiser for pediatric cancer research.</p>
+            <a class="button small" target="_blank"
+               href="https://www.standard.net/opinion/our-view/2016/may/16/who-deserves-praise-and-criticism-this-week-in-and-around-northern-utah/">
+              Read Article
+            </a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="media-card">
+            <a href="https://www.hjnews.com/allaccess/students-shave-their-heads-to-raise-money-for-st-baldrick-s-foundation/article_4c19b75e-e621-11e4-95e0-c7ad7511b73f.html">
+              <img src="images/hjnews-2015-thumb.jpg" alt="Herald Journal 2015" />
+            </a>
+            <h4>Students shave their heads to support St. Baldrick’s Foundation</h4>
+            <div class="byline">Herald Journal — April 18, 2015</div>
+            <p>“‘Service has always been important to me,’ said Ortiz, who organized the school event.”</p>
+            <p><strong>Impact:</strong> Led $6,000+ fundraising effort with strong student involvement.</p>
+            <a class="button small" target="_blank"
+               href="https://www.hjnews.com/allaccess/students-shave-their-heads-to-raise-money-for-st-baldrick-s-foundation/article_4c19b75e-e621-11e4-95e0-c7ad7511b73f.html">
+              Read Article
+            </a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="media-card">
+            <a href="https://www.standard.net/news/local/2016/may/13/ogden-junior-high-raises-more-than-for-headshaving-cancer-charity/">
+              <img src="images/standard-news-2016-thumb.jpg" alt="Standard Examiner 2016" />
+            </a>
+            <h4>Ogden junior high raises $7,000+ for head-shaving cancer charity</h4>
+            <div class="byline">Mark Saal — May 13, 2016</div>
+            <p>“Organized by first-year engineering teacher Cory Ortiz… who was blown away by the generosity.”</p>
+            <p><strong>Impact:</strong> Managed school-wide event raising $7,442 for St. Baldrick’s.</p>
+            <a class="button small" target="_blank"
+               href="https://www.standard.net/news/local/2016/may/13/ogden-junior-high-raises-more-than-for-headshaving-cancer-charity/">
+              Read Article
+            </a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="media-card">
+            <a href="https://www.standard.net/lifestyle/tx/2016/may/09/go-bald-and-help-kids-with-cancer/">
+              <img src="images/standard-tx-2016-thumb.jpg" alt="Standard Examiner TX 2016" />
+            </a>
+            <h4>Go bald — and help kids with cancer</h4>
+            <div class="byline">Brooke Hansen — May 9, 2016</div>
+            <p>“My favorite part is being able to honor all of the people affected by cancer.”</p>
+            <p><strong>Impact:</strong> Public outreach and event promotion helped exceed fundraising goals.</p>
+            <a class="button small" target="_blank"
+               href="https://www.standard.net/lifestyle/tx/2016/may/09/go-bald-and-help-kids-with-cancer/">
+              Read Article
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- LIFETIME IMPACT SUMMARY -->
+      <section class="box">
+        <header>
+          <h3>Lifetime Impact Summary</h3>
+          <p>A decade of youth leadership, fundraising, and community partnership.</p>
+        </header>
+
+        <ul class="impact-list">
+          <li><strong>Total Raised:</strong> $46,661</li>
+          <li><strong>Roles:</strong> Lead Organizer, Volunteer Coordinator, Mentor, Shavee</li>
+          <li><strong>Organizations Supported:</strong> St. Baldrick’s Foundation, local schools, National Ability Center, community nonprofits</li>
+        </ul>
+      </section>
+
+      <!-- CONTRIBUTION TABLE -->
+      <section class="box">
+        <header class="major">
+          <h3>Year-by-Year Contributions</h3>
+        </header>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Year</th><th>Amount</th><th>Event Location</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2024</td><td>$1,502</td><td>Virtual</td><td>Shavee</td></tr>
+              <tr><td>2022</td><td>$806</td><td>Virtual</td><td>Shavee</td></tr>
+              <tr><td>2021</td><td>$17,377</td><td>National Ability Center, Park City, UT</td><td>Lead Organizer</td></tr>
+              <tr><td>2020</td><td>$918</td><td>McMullan's Irish Pub, Las Vegas, NV</td><td>Shavee</td></tr>
+              <tr><td>2019</td><td>$635</td><td>Copper Hills High School, West Jordan, UT</td><td>Lead Organizer</td></tr>
+              <tr><td>2018</td><td>$610</td><td>Virtual</td><td>Shavee</td></tr>
+              <tr><td>2017</td><td>$2,403</td><td>Highland Jr. High School, Ogden, UT</td><td>Lead Organizer</td></tr>
+              <tr><td>2016</td><td>$7,512</td><td>Highland Jr. High School, Ogden, UT</td><td>Lead Organizer</td></tr>
+              <tr><td>2015</td><td>$8,112</td><td>Mount Logan Middle School, Logan, UT</td><td>Lead Organizer</td></tr>
+              <tr><td>2014</td><td>$1,838</td><td>Smithfield Recreation Center</td><td>Lead Organizer</td></tr>
+              <tr><td>2012</td><td>$4,650</td><td>Salt Lake Community College</td><td>Lead Organizer</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- REFLECTION -->
+      <section class="box">
+        <h3>What This Taught Me</h3>
+        <p>
+          Organizing community events strengthened my leadership, communication, planning, and outreach skills—
+          the same human-centered competencies that guide my work in education, curriculum development, and consulting.
         </p>
         <p>
-          <strong>My role:</strong> Event organizer, faculty lead.  
-          <strong>Impact:</strong> Coordinated students & staff to raise funds and public awareness for pediatric cancer research.
+          Interested in program or event design support?
+          <a href="contact.html">Let’s connect.</a>
         </p>
-      </div>
-    </article>
+      </section>
 
+      <!-- FOOTER -->
+      <footer>
+        <ul id="copyright">
+          <li>&copy; 2025 Cory J. Ortiz. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
 
-    <!-- ARTICLE 2 -->
-    <article class="feature">
-
-      <div class="left-column">
-        <a href="https://www.hjnews.com/allaccess/students-shave-their-heads-to-raise-money-for-st-baldrick-s-foundation/article_4c19b75e-e621-11e4-95e0-c7ad7511b73f.html">
-          <img src="images/hjnews-2015-thumb.jpg" alt="Herald Journal 2015">
-        </a>
-        <a href="https://www.hjnews.com/allaccess/students-shave-their-heads-to-raise-money-for-st-baldrick-s-foundation/article_4c19b75e-e621-11e4-95e0-c7ad7511b73f.html" class="button small">Read full article</a>
-      </div>
-
-      <div class="inner">
-        <h4>Students shave their heads to raise money for St. Baldrick’s Foundation</h4>
-        <span class="byline">Herald Journal — Apr 18, 2015</span>
-        <p>
-          “The charity was brought about by student teacher Cory Ortiz who first shaved his head for St. Baldrick’s
-          when he was in junior high… ‘Service has always been important to me…’”
-        </p>
-        <p>
-          <strong>My role:</strong> Organizer & student-teacher lead.  
-          <strong>Impact:</strong> $6,000+ raised; major student participation and community engagement.
-        </p>
-      </div>
-    </article>
-
-
-    <!-- ARTICLE 3 -->
-    <article class="feature">
-
-      <div class="left-column">
-        <a href="https://www.standard.net/news/local/2016/may/13/ogden-junior-high-raises-more-than-for-headshaving-cancer-charity/">
-          <img src="images/standard-news-2016-thumb.jpg" alt="Standard-Examiner news 2016">
-        </a>
-        <a href="https://www.standard.net/news/local/2016/may/13/ogden-junior-high-raises-more-than-for-headshaving-cancer-charity/" class="button small">Read full article</a>
-      </div>
-
-      <div class="inner">
-        <h4>Ogden junior high raises more than $7,000 for head-shaving cancer charity</h4>
-        <span class="byline">Mark Saal — May 13, 2016</span>
-        <p>
-          “Organized by first-year engineering teacher Cory Ortiz, the event is part of a national movement
-          that raises money to fight childhood cancers… Ortiz says he’s been blown away by the generosity of these young people.”
-        </p>
-        <p>
-          <strong>My role:</strong> Primary organizer and liaison with school administrators.  
-          <strong>Impact:</strong> $7,442 raised; widespread student involvement and follow-up donations during assembly.
-        </p>
-      </div>
-    </article>
-
-
-    <!-- ARTICLE 4 -->
-    <article class="feature">
-
-      <div class="left-column">
-        <a href="https://www.standard.net/lifestyle/tx/2016/may/09/go-bald-and-help-kids-with-cancer/">
-          <img src="images/standard-tx-2016-thumb.jpg" alt="Standard-Examiner Tx 2016">
-        </a>
-        <a href="https://www.standard.net/lifestyle/tx/2016/may/09/go-bald-and-help-kids-with-cancer/" class="button small">Read full article</a>
-      </div>
-
-      <div class="inner">
-        <h4>Go bald — and help kids with cancer</h4>
-        <span class="byline">Brooke Hansen — May 9, 2016</span>
-        <p>
-          “‘My favorite part about St. Baldrick’s,’ Ortiz says, ‘is being able to honor all of the people who have 
-          been affected by cancer by shaving in solidarity.’”
-        </p>
-        <p>
-          <strong>My role:</strong> Community outreach and event promotion.  
-          <strong>Impact:</strong> Helped the school exceed its fundraising goal and increase public awareness.
-        </p>
-      </div>
-    </article>
-
-  </section>
-
-
-  <!-- LIFETIME IMPACT SUMMARY -->
-  <section class="box special">
-    <header>
-      <h2>Lifetime Impact Summary</h2>
-      <p>A decade of fundraising, volunteering, and student empowerment.</p>
-    </header>
-
-    <ul style="text-align: left; margin-left: 1rem;">
-      <li><strong>Total raised:</strong> $46,661 across all events</li>
-      <li><strong>Roles:</strong> Event organizer, lead volunteer, mentor, shavee</li>
-      <li><strong>Organizations supported:</strong> St. Baldrick's Foundation, local schools, the National Ability Center, community centers</li>
-    </ul>
-  </section>
-
-
-  <!-- YEAR BY YEAR TABLE -->
-  <section>
-    <header class="major">
-      <h2>Year-by-Year Contribution Record</h2>
-    </header>
-
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr><th>Year</th><th>Amount</th><th>Event Location</th><th>Role</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>2024</td><td>$1,502</td><td>Virtual</td><td>Shavee</td></tr>
-          <tr><td>2022</td><td>$806</td><td>Virtual</td><td>Shavee</td></tr>
-          <tr><td>2021</td><td>$17,377</td><td>National Ability Center, Park City, UT</td><td>Lead Organizer</td></tr>
-          <tr><td>2020</td><td>$918</td><td>McMullan's Irish Pub, Las Vegas, NV</td><td>Shavee</td></tr>
-          <tr><td>2019</td><td>$635</td><td>Copper Hills High School, West Jordan, UT</td><td>Lead Organizer</td></tr>
-          <tr><td>2018</td><td>$610</td><td>Virtual</td><td>Shavee</td></tr>
-          <tr><td>2017</td><td>$2,403</td><td>Highland Jr. High School, Ogden, UT</td><td>Lead Organizer</td></tr>
-          <tr><td>2016</td><td>$7,512</td><td>Highland Jr. High School, Ogden, UT</td><td>Lead Organizer</td></tr>
-          <tr><td>2015</td><td>$8,112</td><td>Mount Logan Middle School, Logan, UT</td><td>Lead Organizer</td></tr>
-          <tr><td>2014</td><td>$1,838</td><td>Smithfield Recreation Center</td><td>Lead Organizer</td></tr>
-          <tr><td>2012</td><td>$4,650</td><td>Salt Lake Community College</td><td>Lead Organizer</td></tr>
-        </tbody>
-      </table>
     </div>
-  </section>
 
-
-  <!-- REFLECTION -->
-  <div class="box">
-    <h3>What this taught me</h3>
-    <p>
-      Organizing these events required logistics planning, stakeholder coordination, volunteer management,
-      fundraising strategy, risk & permissions handling, and media outreach. I apply the same structured,
-      human-centered leadership to consulting projects in education, nonprofit strategy, and community programs.
-    </p>
-    <p>
-      If you’re interested in support with program design, community-engaged initiatives, or team-driven
-      volunteer campaigns, <a href="contact.html">let’s talk</a>.
-    </p>
-  </div>
-
-
-  <!-- Footer -->
-  <footer id="footer">
-    <p class="copyright">© Cory Ortiz. All rights reserved.</p>
-  </footer>
-
-</div>
-
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
